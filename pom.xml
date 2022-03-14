@@ -11,17 +11,19 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
-	<groupId>br.com.araujo</groupId>
-	<artifactId>ecommerce-produto</artifactId>
+	<groupId>br.com.lstecnologia</groupId>
+	<artifactId>api-authenticator</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ecommerce-produto</name>
-	<description>Ecommerce - Produto</description>
+	<name>api-authenticator</name>
+	<description>API-Authenticator</description>
 
 	<properties>
 		<java.version>11</java.version>
 		<oauth2-oidc-sdk.version>6.21.2</oauth2-oidc-sdk.version>
 		<spring-security-oauth2.version>2.3.7.RELEASE</spring-security-oauth2.version>
 		<spring-security-jwt.version>1.0.11.RELEASE</spring-security-jwt.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
 
 	<dependencies>
@@ -95,6 +97,10 @@
 			<version>${spring-security-oauth2.version}</version>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-hateoas</artifactId>
+		</dependency>		
+		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 		</dependency>
@@ -111,6 +117,11 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>2.3.9</version>
 		</dependency>
 	</dependencies>
 
