@@ -20,22 +20,22 @@ public class BaseModel implements Serializable {
 
 	private static final long serialVersionUID = 6967241038577250988L;
 	
-	@Column(name = "excluido")
-	private boolean excluido = Boolean.FALSE;
+	@Column(name = "excluded")
+	private boolean excluded = Boolean.FALSE;
 	
-	@Column(name = "ativo")
-	private boolean ativo = Boolean.TRUE;
+	@Column(name = "active")
+	private boolean active = Boolean.TRUE;
 	
-	@Column(columnDefinition = "TEXT", name = "justificativa_inativacao")
+	@Column(columnDefinition = "TEXT", name = "justification_inactivation")
 	@Type(type = "text")
-	private String justificativaInativacao;
+	private String justificationInactivation;
 
 	@CreationTimestamp
-	@Column(nullable = false, columnDefinition = "timestamp", name = "data_insercao")
-	private LocalDateTime dataInsercao;
+	@Column(nullable = false, columnDefinition = "timestamp", name = "creation_date")
+	private LocalDateTime creationDate;
 	
 	@UpdateTimestamp
-	@Column(nullable = false, columnDefinition = "timestamp", name = "data_alteracao")
-	private LocalDateTime dataAlteracao;
+	@Column(nullable = false, columnDefinition = "timestamp", name = "change_date")
+	private LocalDateTime changeDate;
 
 }

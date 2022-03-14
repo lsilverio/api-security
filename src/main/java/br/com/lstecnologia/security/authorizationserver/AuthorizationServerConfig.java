@@ -70,7 +70,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	private ApprovalStore approvalStore(TokenStore tokenStore) {
 		var approvalStore = new TokenApprovalStore();
 		approvalStore.setTokenStore(tokenStore);
-		
 		return approvalStore;
 	}
 	

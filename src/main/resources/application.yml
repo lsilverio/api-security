@@ -1,0 +1,28 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-authenticator
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: Sa113s
+    url: jdbc:mysql://localhost:3306/api_authenticator?createDatabaseIfNotExist=true&useTimezone=true&serverTimezone=America/Sao_Paulo&zeroDateTimeBehavior=convertToNull
+    username: root
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          public-key-location: classpath:keys/lstecnologia-pkey.pem
+
+lstecnologia:
+  jwt:
+    keystore:
+      jks-location: classpath:keys/lstecnologia.jks
+      keypair-alias: lstecnologia
+      password: lstecnologia@987

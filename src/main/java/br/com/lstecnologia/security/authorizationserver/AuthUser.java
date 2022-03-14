@@ -20,7 +20,7 @@ public class AuthUser extends User {
 		super(usuario.getUsername(), usuario.getPassword(), authorities);
 		
 		this.userId = usuario.getId();
-		this.fullName = usuario.getNome();
+		this.fullName = usuario.getName();
 	}
 	
 }

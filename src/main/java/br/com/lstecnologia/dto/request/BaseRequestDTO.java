@@ -8,10 +8,10 @@ import lombok.Setter;
 @Setter
 public class BaseRequestDTO {
 	
-	@ApiModelProperty(value = "Registro ativo", example = "true ou false")
-	private boolean ativo = true;
+	@ApiModelProperty(value = "Active", example = "true ou false")
+	private boolean active = true;
 	
-	@ApiModelProperty(value = "Justificativa da inativacao")
-	private String justificativaInativacao;
+	@ApiModelProperty(value = "Justification of inactivation")
+	private String justificationInactivation;
 
 }

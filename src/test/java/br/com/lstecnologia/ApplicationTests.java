@@ -1,4 +1,4 @@
-package br.com.araujo;
+package br.com.lstecnologia;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

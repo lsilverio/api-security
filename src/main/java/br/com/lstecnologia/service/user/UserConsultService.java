@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import br.com.lstecnologia.dto.response.UserResponseDto;
@@ -24,6 +25,10 @@ public class UserConsultService {
 	public UserResponseDto getById(Long id) {
 		UserModel userModel = userRepository.findById(id).orElseThrow(() -> new ObjectNotFoundException("User not found using the given id"));
 		return toResponseDTO(userModel);
+	}
+	
+	public UserModel findByUsername(String username) {
+		return userRepository.findByUsernameAndActiveTrue(username).orElseThrow(() -> new UsernameNotFoundException("User not found with username provided"));
 	}
 
 	public List<UserResponseDto> getAll() {

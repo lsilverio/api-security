@@ -32,9 +32,9 @@ public class PermissionModel extends BaseModel implements Serializable {
 	private Long id;
 	
 	@Column(unique = true, nullable = false)
-	private String nome;
+	private String name;
 	
 	@Column(nullable = false)
-	private String descricao;
+	private String description;
 	
 }

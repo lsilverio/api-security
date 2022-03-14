@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.lstecnologia.controller.BaseController;
-import br.com.lstecnologia.security.UserSecurity;
+import br.com.lstecnologia.security.permission.UserSecurity;
 import br.com.lstecnologia.service.user.UserDeleteService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

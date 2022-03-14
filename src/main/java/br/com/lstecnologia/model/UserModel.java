@@ -37,7 +37,7 @@ public class UserModel extends BaseModel implements Serializable {
 	private Long id;
 	
     @Column(nullable = false)
-	private String nome;
+	private String name;
 	
 	@Column(unique = true, nullable = false)
 	private String username;
@@ -46,8 +46,8 @@ public class UserModel extends BaseModel implements Serializable {
 	private String password;
 	
 	@ManyToMany
-	@JoinTable(name = "user_perfil", joinColumns = @JoinColumn(name = "user_id"),
-			inverseJoinColumns = @JoinColumn(name = "perfil_id"))
+	@JoinTable(name = "user_profile", joinColumns = @JoinColumn(name = "user_id"),
+			inverseJoinColumns = @JoinColumn(name = "profile_id"))
 	private Set<ProfileModel> profiles = new HashSet<>();
 	
 }

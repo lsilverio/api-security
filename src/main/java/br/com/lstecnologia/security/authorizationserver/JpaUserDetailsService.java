@@ -13,26 +13,25 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.lstecnologia.model.UserModel;
-import br.com.lstecnologia.repository.UserRepository;
+import br.com.lstecnologia.service.user.UserConsultService;
 
 @Service
 public class JpaUserDetailsService implements UserDetailsService {
 
 	@Autowired
-	private UserRepository usuarioRepository;
+	private UserConsultService userConsultService;
 	
 	@Transactional(readOnly = true)
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		UserModel usuario = usuarioRepository.findByUsername(username)
-				.orElseThrow(() -> new UsernameNotFoundException("User not found with username provided"));
-		return new AuthUser(usuario, getAuthorities(usuario));
+		UserModel userModel = userConsultService.findByUsername(username);
+		return new AuthUser(userModel, getAuthorities(userModel));
 	}
 	
 	private Collection<GrantedAuthority> getAuthorities(UserModel userModel) {
 		return userModel.getProfiles().stream()
 				.flatMap(profile -> profile.getPermissions().stream())
-				.map(permission -> new SimpleGrantedAuthority(permission.getNome().toUpperCase()))
+				.map(permission -> new SimpleGrantedAuthority(permission.getName().toUpperCase()))
 				.collect(Collectors.toSet());
 	}
 

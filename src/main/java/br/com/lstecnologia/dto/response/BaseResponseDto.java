@@ -14,21 +14,21 @@ import lombok.Setter;
 @Setter
 public class BaseResponseDto extends RepresentationModel<BaseResponseDto> {
 	
-	@ApiModelProperty(value = "Id da tabela no banco de dados")
+	@ApiModelProperty(value = "Table id in the database")
 	private Long id;
 	
-	@ApiModelProperty(value = "Data de inserção")
+	@ApiModelProperty(value = "Change date")
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
-	private LocalDateTime dataInsercao;
+	private LocalDateTime changeDate;
 	
-	@ApiModelProperty(value = "Data de alteracao")
+	@ApiModelProperty(value = "Creation date")
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
-	private LocalDateTime dataAlteracao;
+	private LocalDateTime creationDate;
 	
-	@ApiModelProperty(value = "Registro ativo", example = "true ou false")
-	private boolean ativo = true;
+	@ApiModelProperty(value = "Active", example = "true ou false")
+	private boolean active = true;
 	
-	@ApiModelProperty(value = "Justificativa da inativacao")
-	private String justificativaInativacao;
+	@ApiModelProperty(value = "Justification of inactivation")
+	private String justificationInactivation;
 
 }

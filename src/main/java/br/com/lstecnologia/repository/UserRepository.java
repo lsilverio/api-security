@@ -10,6 +10,6 @@ import br.com.lstecnologia.model.UserModel;
 @Repository
 public interface UserRepository extends JpaRepository<UserModel, Long> {
 
-	Optional<UserModel> findByUsername(String username);
+	Optional<UserModel> findByUsernameAndActiveTrue(String username);
 	
 }

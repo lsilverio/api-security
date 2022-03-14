@@ -1,4 +1,4 @@
-package br.com.lstecnologia.security;
+package br.com.lstecnologia.security.permission;
 
 import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
@@ -12,21 +12,26 @@ public @interface UserSecurity {
 
 	public @interface Permission {
 		
+		@PreAuthorize("hasAuthority('CONSULT_ALL_USERS')")
+		@Retention(RUNTIME)
+		@Target(METHOD)
+		public @interface ConsultAll { }
+		
+		@PreAuthorize("hasAuthority('CONSULT_BY_ID_USERS')")
+		@Retention(RUNTIME)
+		@Target(METHOD)
+		public @interface ConsultById { }
+		
 		@PreAuthorize("hasAuthority('REGISTER_USERS')")
 		@Retention(RUNTIME)
 		@Target(METHOD)
 		public @interface Register { }
 		
-		@PreAuthorize("hasAuthority('EDIT_USERS')")
+		@PreAuthorize("hasAuthority('UPDATE_USERS')")
 		@Retention(RUNTIME)
 		@Target(METHOD)
-		public @interface Edit { }
+		public @interface Update { }
 
-		@PreAuthorize("hasAuthority('CONSULT_USERS')")
-		@Retention(RUNTIME)
-		@Target(METHOD)
-		public @interface Consult { }
-		
 		@PreAuthorize("hasAuthority('DELETE_USERS')")
 		@Retention(RUNTIME)
 		@Target(METHOD)

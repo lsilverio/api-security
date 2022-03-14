@@ -15,7 +15,7 @@ import lombok.Setter;
 @Getter
 @Validated
 @Component
-@ConfigurationProperties("araujo.jwt.keystore")
+@ConfigurationProperties("lstecnologia.jwt.keystore")
 public class JwtKeyStoreProperties {
 
 	@NotNull

@@ -37,7 +37,10 @@ public class ProfileModel extends BaseModel implements Serializable {
 	private Long id;
 
 	@Column(unique = true, nullable = false)
-	private String nome;
+	private String name;
+	
+	@Column(nullable = false)
+	private String description;
 
 	@ManyToMany
 	@JoinTable(name = "profile_permission", joinColumns = @JoinColumn(name = "profile_id"), inverseJoinColumns = @JoinColumn(name = "permission_id"))

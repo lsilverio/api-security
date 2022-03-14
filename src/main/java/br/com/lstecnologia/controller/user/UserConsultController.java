@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.lstecnologia.controller.BaseController;
 import br.com.lstecnologia.dto.response.UserResponseDto;
-import br.com.lstecnologia.security.UserSecurity;
+import br.com.lstecnologia.security.permission.UserSecurity;
 import br.com.lstecnologia.service.user.UserConsultService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -23,14 +23,14 @@ public class UserConsultController extends BaseController {
 	@Autowired
 	private UserConsultService userService;
 	
-	@UserSecurity.Permission.Consult
+	@UserSecurity.Permission.ConsultAll
 	@GetMapping
 	@ApiOperation(value = "Get all users", response = UserResponseDto[].class)
 	public ResponseEntity<Object> getAll() {
 		return ok(userService.getAll());
 	}
 	
-	@UserSecurity.Permission.Consult
+	@UserSecurity.Permission.ConsultById
 	@GetMapping(value = "/{id}")
 	@ApiOperation(value = "Get user by id", response = UserResponseDto.class)
 	public ResponseEntity<Object> getById(@PathVariable Long id) {
