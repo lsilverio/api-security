@@ -25,10 +25,10 @@ public class HealthCheckController {
 	@ApiOperation(value = "Health check - API", response = HealthCheckDto.class)
 	public ResponseEntity<Object> check() {
 
-		String application = environment.getProperty("spring.application.name");
+		String applicationName = environment.getProperty("spring.application.name");
 		
 		HealthCheckDto checkDTO = HealthCheckDto.builder()
-				.application(application)
+				.application(applicationName)
 				.status(HttpStatus.OK.value())
 				.message("Health")
 				.build();

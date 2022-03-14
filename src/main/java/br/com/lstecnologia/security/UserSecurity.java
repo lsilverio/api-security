@@ -27,6 +27,11 @@ public @interface UserSecurity {
 		@Target(METHOD)
 		public @interface Consult { }
 		
+		@PreAuthorize("hasAuthority('DELETE_USERS')")
+		@Retention(RUNTIME)
+		@Target(METHOD)
+		public @interface Delete { }
+		
 	}
 	
 }

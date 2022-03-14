@@ -6,7 +6,7 @@ import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.stereotype.Component;
 
 @Component
-public class AraujoSecurity {
+public class LSTecnologiaSecurity {
 
 	public Authentication getAuthentication() {
 		return SecurityContextHolder.getContext().getAuthentication();

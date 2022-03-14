@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.server.mvc.RepresentationModelAssemblerSupport;
 import org.springframework.stereotype.Component;
 
-import br.com.lstecnologia.controller.UserController;
+import br.com.lstecnologia.controller.user.UserConsultController;
 import br.com.lstecnologia.dto.response.UserResponseDto;
 import br.com.lstecnologia.model.UserModel;
 
@@ -19,7 +19,7 @@ public class UserAssembler extends RepresentationModelAssemblerSupport<UserModel
 	private ModelMapper modelMapper;
 
 	public UserAssembler() {
-		super(UserController.class, UserResponseDto.class);
+		super(UserConsultController.class, UserResponseDto.class);
 	}
 
 	@Override
@@ -28,10 +28,10 @@ public class UserAssembler extends RepresentationModelAssemblerSupport<UserModel
 		UserResponseDto usuarioResponseDto = modelMapper.map(usuarioModel, UserResponseDto.class);
 
 		usuarioResponseDto
-				.add(linkTo(methodOn(UserController.class).getAll()).withRel("usuarios"));
+				.add(linkTo(methodOn(UserConsultController.class).getAll()).withRel("usuarios"));
 
 		usuarioResponseDto
-				.add(linkTo(methodOn(UserController.class).getById(usuarioResponseDto.getId()))
+				.add(linkTo(methodOn(UserConsultController.class).getById(usuarioResponseDto.getId()))
 						.withSelfRel());
 
 		return usuarioResponseDto;
