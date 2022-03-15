@@ -6,7 +6,7 @@ import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.stereotype.Component;
 
 @Component
-public class LSTecnologiaSecurity {
+public class CheckSecurity {
 
 	public Authentication getAuthentication() {
 		return SecurityContextHolder.getContext().getAuthentication();
@@ -18,34 +18,17 @@ public class LSTecnologiaSecurity {
 	
 	public Long getUsuarioId() {
 		Jwt jwt = (Jwt) getAuthentication().getPrincipal();
-		
 		return jwt.getClaim("usuario_id");
 	}
 	
-	public boolean usuarioAutenticadoIgual(Long usuarioId) {
-		return getUsuarioId() != null && usuarioId != null
-				&& getUsuarioId().equals(usuarioId);
+	public boolean isEqualsUserId(Long userId) {
+		return getUsuarioId() != null && userId != null
+				&& getUsuarioId().equals(userId);
 	}
 	
 	public boolean hasAuthority(String authorityName) {
 		return getAuthentication().getAuthorities().stream()
 				.anyMatch(authority -> authority.getAuthority().equals(authorityName));
-	}
-	
-	public boolean temEscopoEscrita() {
-		return hasAuthority("SCOPE_WRITE");
-	}
-	
-	public boolean temEscopoLeitura() {
-		return hasAuthority("SCOPE_READ");
-	}
-	
-	public boolean podeEditarUsuariosGruposPermissoes() {
-		return temEscopoEscrita() && hasAuthority("EDITAR_USUARIOS_GRUPOS_PERMISSOES");
-	}
-	
-	public boolean podeConsultarUsuarios() {
-		return isAutenticado() && temEscopoLeitura();
 	}
 	
 }

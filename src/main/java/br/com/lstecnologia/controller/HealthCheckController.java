@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.lstecnologia.dto.HealthCheckDto;
+import br.com.lstecnologia.dto.HealthCheckDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
@@ -22,12 +22,12 @@ public class HealthCheckController {
 	private Environment environment;
 	
 	@GetMapping
-	@ApiOperation(value = "Health check - API", response = HealthCheckDto.class)
+	@ApiOperation(value = "Health check - API", response = HealthCheckDTO.class)
 	public ResponseEntity<Object> check() {
 
 		String applicationName = environment.getProperty("spring.application.name");
 		
-		HealthCheckDto checkDTO = HealthCheckDto.builder()
+		HealthCheckDTO checkDTO = HealthCheckDTO.builder()
 				.application(applicationName)
 				.status(HttpStatus.OK.value())
 				.message("Health")

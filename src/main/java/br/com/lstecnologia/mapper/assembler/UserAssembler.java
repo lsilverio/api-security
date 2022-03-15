@@ -8,36 +8,37 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.server.mvc.RepresentationModelAssemblerSupport;
 import org.springframework.stereotype.Component;
 
-import br.com.lstecnologia.controller.user.UserConsultController;
-import br.com.lstecnologia.dto.response.UserResponseDto;
+import br.com.lstecnologia.controller.user.UserConsultAllController;
+import br.com.lstecnologia.controller.user.UserConsultIdController;
+import br.com.lstecnologia.dto.response.UserResponseDTO;
 import br.com.lstecnologia.model.UserModel;
 
 @Component
-public class UserAssembler extends RepresentationModelAssemblerSupport<UserModel, UserResponseDto> {
+public class UserAssembler extends RepresentationModelAssemblerSupport<UserModel, UserResponseDTO> {
 
 	@Autowired
 	private ModelMapper modelMapper;
 
 	public UserAssembler() {
-		super(UserConsultController.class, UserResponseDto.class);
+		super(UserConsultAllController.class, UserResponseDTO.class);
 	}
 
 	@Override
-	public UserResponseDto toModel(UserModel usuarioModel) {
+	public UserResponseDTO toModel(UserModel usuarioModel) {
 
-		UserResponseDto usuarioResponseDto = modelMapper.map(usuarioModel, UserResponseDto.class);
-
-		usuarioResponseDto
-				.add(linkTo(methodOn(UserConsultController.class).getAll()).withRel("usuarios"));
+		UserResponseDTO usuarioResponseDto = modelMapper.map(usuarioModel, UserResponseDTO.class);
 
 		usuarioResponseDto
-				.add(linkTo(methodOn(UserConsultController.class).getById(usuarioResponseDto.getId()))
+				.add(linkTo(methodOn(UserConsultAllController.class).getAll()).withRel("usuarios"));
+
+		usuarioResponseDto
+				.add(linkTo(methodOn(UserConsultIdController.class).getById(usuarioResponseDto.getId()))
 						.withSelfRel());
 
 		return usuarioResponseDto;
 	}
 
-	public UserResponseDto toResponseDTO(UserModel usuarioModel) {
+	public UserResponseDTO toResponseDTO(UserModel usuarioModel) {
 		return toModel(usuarioModel);
 	}
 

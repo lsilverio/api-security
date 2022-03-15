@@ -3,16 +3,17 @@ package br.com.lstecnologia.dto.response;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
-public class ProfileResponseDto extends BaseResponseDto {
+@ToString
+public class UserResponseDTO extends BaseResponseDTO {
 
+	@ApiModelProperty(value = "Name")
+	private String name;
 	
-	@ApiModelProperty(value = "Nome do usuario")
-	private String nome;
-	
-	@ApiModelProperty(value = "username do usuario")
+	@ApiModelProperty(value = "Username")
 	private String username;
 	
 }

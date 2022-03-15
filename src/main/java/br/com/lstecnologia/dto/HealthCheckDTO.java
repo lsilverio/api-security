@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Builder
-public class HealthCheckDto {
+public class HealthCheckDTO {
 
 	private String application;
 	private int status;

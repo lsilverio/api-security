@@ -250,8 +250,8 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 		return handleExceptionInternal(ex, problem, new HttpHeaders(), status, request);
 	}
 	
-	@ExceptionHandler(NegocioException.class)
-	public ResponseEntity<?> handleNegocio(NegocioException ex, WebRequest request) {
+	@ExceptionHandler(RegraDeNegocioException.class)
+	public ResponseEntity<?> handleNegocio(RegraDeNegocioException ex, WebRequest request) {
 
 		HttpStatus status = HttpStatus.BAD_REQUEST;
 		ProblemType problemType = ProblemType.ERRO_NEGOCIO;

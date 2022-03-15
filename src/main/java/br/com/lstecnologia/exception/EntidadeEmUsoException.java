@@ -1,6 +1,6 @@
 package br.com.lstecnologia.exception;
 
-public class EntidadeEmUsoException extends NegocioException {
+public class EntidadeEmUsoException extends RegraDeNegocioException {
 
 	private static final long serialVersionUID = 1L;
 

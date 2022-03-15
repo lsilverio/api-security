@@ -13,7 +13,7 @@ spring:
     database-platform: org.hibernate.dialect.MySQL5Dialect
     hibernate:
       ddl-auto: update
-    show-sql: true
+    show-sql: false
   security:
     oauth2:
       resourceserver:

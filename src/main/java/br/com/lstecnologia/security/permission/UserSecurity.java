@@ -17,22 +17,22 @@ public @interface UserSecurity {
 		@Target(METHOD)
 		public @interface ConsultAll { }
 		
-		@PreAuthorize("hasAuthority('CONSULT_BY_ID_USERS')")
+		@PreAuthorize("hasAuthority('CONSULT_BY_ID_USER')")
 		@Retention(RUNTIME)
 		@Target(METHOD)
 		public @interface ConsultById { }
 		
-		@PreAuthorize("hasAuthority('REGISTER_USERS')")
+		@PreAuthorize("hasAuthority('CONSULT_ALL_BY_ID_USERS')")
 		@Retention(RUNTIME)
 		@Target(METHOD)
-		public @interface Register { }
+		public @interface ConsultAllById { }
 		
-		@PreAuthorize("hasAuthority('UPDATE_USERS')")
+		@PreAuthorize("hasAuthority('UPDATE_USER')")
 		@Retention(RUNTIME)
 		@Target(METHOD)
 		public @interface Update { }
 
-		@PreAuthorize("hasAuthority('DELETE_USERS')")
+		@PreAuthorize("hasAuthority('DELETE_USER')")
 		@Retention(RUNTIME)
 		@Target(METHOD)
 		public @interface Delete { }

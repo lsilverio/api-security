@@ -9,10 +9,12 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
-public class BaseResponseDto extends RepresentationModel<BaseResponseDto> {
+@ToString
+public class BaseResponseDTO extends RepresentationModel<BaseResponseDTO> {
 	
 	@ApiModelProperty(value = "Table id in the database")
 	private Long id;

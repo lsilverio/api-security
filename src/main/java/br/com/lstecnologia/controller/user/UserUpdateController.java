@@ -1,5 +1,7 @@
 package br.com.lstecnologia.controller.user;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -10,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.lstecnologia.controller.BaseController;
-import br.com.lstecnologia.dto.request.UserRequestDto;
+import br.com.lstecnologia.dto.request.UserRequestDTO;
 import br.com.lstecnologia.security.permission.UserSecurity;
 import br.com.lstecnologia.service.user.UserUpdateService;
 import io.swagger.annotations.Api;
@@ -27,7 +29,7 @@ public class UserUpdateController extends BaseController {
 	@UserSecurity.Permission.Update
 	@PutMapping(value = "/{id}")
 	@ApiOperation(value = "Update user", response = Void.class)
-	public ResponseEntity<Void> register(@PathVariable Long id, @RequestBody UserRequestDto userRequestDto) {
+	public ResponseEntity<Void> update(@PathVariable Long id, @Valid @RequestBody UserRequestDTO userRequestDto) {
 		userUpdateService.update(id, userRequestDto);
 		return noContent();
 	}

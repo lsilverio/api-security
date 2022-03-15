@@ -13,18 +13,18 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.lstecnologia.model.UserModel;
-import br.com.lstecnologia.service.user.UserConsultService;
+import br.com.lstecnologia.service.user.UserConsultUsernameService;
 
 @Service
 public class JpaUserDetailsService implements UserDetailsService {
 
 	@Autowired
-	private UserConsultService userConsultService;
+	private UserConsultUsernameService userConsultUsernameService;
 	
 	@Transactional(readOnly = true)
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		UserModel userModel = userConsultService.findByUsername(username);
+		UserModel userModel = userConsultUsernameService.findByUsername(username);
 		return new AuthUser(userModel, getAuthorities(userModel));
 	}
 	

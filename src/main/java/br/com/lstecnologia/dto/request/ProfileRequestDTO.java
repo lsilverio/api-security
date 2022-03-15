@@ -1,8 +1,14 @@
 package br.com.lstecnologia.dto.request;
 
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
-public class ProfileRequestDto extends BaseRequestDTO {
+@Getter
+@Setter
+@ToString
+public class ProfileRequestDTO extends BaseRequestDTO {
 	
 	@ApiModelProperty(value = "Nome do user")
 	private String nome;

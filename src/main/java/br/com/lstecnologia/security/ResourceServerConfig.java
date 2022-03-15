@@ -27,6 +27,10 @@ public class ResourceServerConfig extends WebSecurityConfigurerAdapter {
 		http
 			.authorizeRequests()
 				.antMatchers(HttpMethod.GET, "/").permitAll()
+				.antMatchers(HttpMethod.GET, "/swagger-ui.html").permitAll()
+				.antMatchers(HttpMethod.POST, "/users").permitAll()
+				.antMatchers(HttpMethod.PUT, "/users/passwords").permitAll()
+				.antMatchers(HttpMethod.PUT, "/users/passwords/generate-uuid").permitAll()
 				.anyRequest().authenticated()
 			.and()
 				.csrf().disable()

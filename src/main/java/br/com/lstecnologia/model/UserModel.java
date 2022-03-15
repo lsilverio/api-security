@@ -1,6 +1,7 @@
 package br.com.lstecnologia.model;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -26,7 +28,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = false)
 @Entity
-@Table(name = "user")
+@Table(name = "user", uniqueConstraints = { @UniqueConstraint(columnNames = { "username" }) })
 public class UserModel extends BaseModel implements Serializable {
 	
 	private static final long serialVersionUID = 7424341616155266211L;
@@ -44,6 +46,12 @@ public class UserModel extends BaseModel implements Serializable {
 	
 	@Column(nullable = false)
 	private String password;
+	
+	@Column(name = "uuid_password", nullable = false)
+	private String uuidPassword;
+	
+	@Column(name = "expiration_date_uuid_password", nullable = false)
+	private LocalDateTime expirationDateUuidPassword;
 	
 	@ManyToMany
 	@JoinTable(name = "user_profile", joinColumns = @JoinColumn(name = "user_id"),
