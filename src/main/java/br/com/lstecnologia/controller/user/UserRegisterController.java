@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.lstecnologia.controller.BaseController;
-import br.com.lstecnologia.dto.request.UserRequestDTO;
+import br.com.lstecnologia.dto.request.UserRegisterRequestDTO;
 import br.com.lstecnologia.dto.response.UserResponseDTO;
 import br.com.lstecnologia.service.user.UserRegisterService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
-@Api(tags = "User")
+@Api(tags = "User", description = " ")
 @RestController
 @RequestMapping(value = "/users", produces = MediaType.APPLICATION_JSON_VALUE)
 public class UserRegisterController extends BaseController {
@@ -27,8 +27,8 @@ public class UserRegisterController extends BaseController {
 	
 	@ApiOperation(value = "Register new user", response = UserResponseDTO.class)
 	@PostMapping
-	public ResponseEntity<Object> register(@Valid @RequestBody UserRequestDTO userRequestDto) {
-		UserResponseDTO userResponseDto = userRegisterService.register(userRequestDto);
+	public ResponseEntity<Object> register(@Valid @RequestBody UserRegisterRequestDTO userRegisterRequestDTO) {
+		UserResponseDTO userResponseDto = userRegisterService.register(userRegisterRequestDTO);
 		return created(userResponseDto, userResponseDto.getId());
 	}
 	

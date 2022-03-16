@@ -10,7 +10,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class PasswordUserRequestDTO {
+public class UserEmailRequestDTO {
 	
 	@NotEmpty(message = "Is required")
 	@ApiModelProperty(value = "Email", required = true)

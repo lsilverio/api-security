@@ -13,7 +13,7 @@ import br.com.lstecnologia.dto.HealthCheckDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
-@Api(tags = "HealthCheck")
+@Api(tags = "HealthCheck", description = " ")
 @RestController
 @RequestMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
 public class HealthCheckController {

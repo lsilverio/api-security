@@ -26,6 +26,12 @@ public class ResourceServerConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 			.authorizeRequests()
+				.antMatchers("/v2/api-docs").permitAll()
+				.antMatchers("/configuration/ui").permitAll()
+				.antMatchers("/configuration/security").permitAll()
+				.antMatchers("/swagger-resources").permitAll()
+				.antMatchers("/swagger-resources/**").permitAll()
+				.antMatchers("/webjars/**").permitAll()
 				.antMatchers(HttpMethod.GET, "/").permitAll()
 				.antMatchers(HttpMethod.GET, "/swagger-ui.html").permitAll()
 				.antMatchers(HttpMethod.POST, "/users").permitAll()
@@ -36,9 +42,9 @@ public class ResourceServerConfig extends WebSecurityConfigurerAdapter {
 				.csrf().disable()
 				.cors()
 			.and()
-			.oauth2ResourceServer()
-				.jwt()
-				.jwtAuthenticationConverter(jwtAuthenticationConverter());
+				.oauth2ResourceServer()
+					.jwt()
+					.jwtAuthenticationConverter(jwtAuthenticationConverter());
 	}
 	
 	private JwtAuthenticationConverter jwtAuthenticationConverter() {

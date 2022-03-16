@@ -3,7 +3,7 @@ package br.com.lstecnologia.service.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.lstecnologia.dto.request.UserRequestDTO;
+import br.com.lstecnologia.dto.request.UserRegisterRequestDTO;
 import br.com.lstecnologia.dto.response.UserResponseDTO;
 import br.com.lstecnologia.mapper.assembler.UserAssembler;
 import br.com.lstecnologia.mapper.disassembler.UserDisassembler;
@@ -30,13 +30,20 @@ public class UserRegisterService {
 	@Autowired
 	private UserDisassembler usuarioDisassembler;
 
-	public UserResponseDTO register(UserRequestDTO userRequestDto) {
-		UserModel userModel = usuarioDisassembler.toModel(userRequestDto);
-		emailService.validateEquals(userRequestDto.getEmail(), userRequestDto.getEmailConfirmation());
-		userModel.setUsername(userRequestDto.getEmail());
+	public UserResponseDTO register(UserRegisterRequestDTO userRegisterRequestDTO) {
+		UserModel userModel = usuarioDisassembler.toModel(userRegisterRequestDTO);
+		
+		emailService.validateEquals(userRegisterRequestDTO.getEmail(), userRegisterRequestDTO.getEmailConfirmation());
+		passwordService.validateEquals(userRegisterRequestDTO.getPassword(), userRegisterRequestDTO.getPasswordConfirmation());
+		
+		userModel.setUsername(userRegisterRequestDTO.getEmail());
 		userModel.setPassword(passwordService.encode(userModel.getPassword()));
-		userModel = userRepository.save(userModel);
-		return usuarioAssembler.toResponseDTO(userModel);
+		
+		return usuarioAssembler.toResponseDTO(salvar(userModel));
+	}
+
+	private UserModel salvar(UserModel userModel) {
+		return userRepository.save(userModel);
 	}
 
 }

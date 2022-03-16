@@ -18,7 +18,7 @@ import br.com.lstecnologia.service.user.UserUpdateService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
-@Api(tags = "User")
+@Api(tags = "User", description = " ")
 @RestController
 @RequestMapping(value = "/users", produces = MediaType.APPLICATION_JSON_VALUE)
 public class UserUpdateController extends BaseController {

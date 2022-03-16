@@ -10,7 +10,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class NewPasswordUserRequestDTO {
+public class UserNewPasswordRequestDTO {
 	
 	@NotEmpty(message = "Is required")
 	@ApiModelProperty(value = "UUID", required = true)

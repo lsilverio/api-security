@@ -14,14 +14,14 @@ public class UUIDService {
 		return UUID.randomUUID().toString();
 	}
 
-	public void isExpired(LocalDateTime expirationDate) {
+	public void validateExpired(LocalDateTime expirationDate) {
 		LocalDateTime agora = LocalDateTime.now();
 		if(agora.isAfter(expirationDate)) {
 			throw new RegraDeNegocioException("The UUID expired ");
 		}
 	}
 
-	public void isEquals(String uuidOne, String uuidTwo) {
+	public void validateEquals(String uuidOne, String uuidTwo) {
 		if(!uuidOne.equals(uuidTwo)) {
 			throw new RegraDeNegocioException("The UUID provided is invalid");
 		}
