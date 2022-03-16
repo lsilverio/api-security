@@ -17,27 +17,23 @@ import io.swagger.annotations.ApiResponses;
 	@ApiResponses(value = {
 	    @ApiResponse(
 	            code = 201, 
-	            message = "Created. A requisição foi bem sucessida e um novo recurso foi criado como resultado.\r\n" + 
-	            		"Esta é uma tipica resposta enviada após uma requisição POST."),
+	            message = "The request was successful and a new resource was created as a result."),
 	    @ApiResponse(
 	            code = 400, 
-	            message = "Bad Request. Essa resposta significa que o servidor não entendeu a requisição pois está com\r\n" + 
-	            		"uma sintaxe inválida. Algum parametro enviado não está de acordo com o que a API espera."),    
+	            message = "The server did not understand the request because it has an invalid syntax."),    
 	    @ApiResponse(
 	            code = 401, 
-	            message = "Unauthorized. Embora o padrão HTTP especifique \"unauthorized\", semanticamente, essa resposta significa\r\n" + 
-	            		"\"unauthenticated\". Ou seja, o cliente deve se autenticar para obter a resposta solicitada."),
+	            message = "The client must authenticate itself to get the requested response."),
 	    @ApiResponse(
 	            code = 403, 
-	            message = "Forbidden. Na API geralmente ocorre devido o não envio do Token ou envio de algum\r\n" + 
-	            		"Token inválido no header da request."),
+	            message = "You do not have permission to perform this operation."),
 	    @ApiResponse(
 	            code = 404, 
-	            message = "Resource Not Found. O servidor não pode encontrar o recurso solicitado."),
+	            message = "The server cannot find the requested resource."),
 	    @ApiResponse(
 	            code = 500, 
-	            message = "Internal Server Error. O servidor encontrou uma situação com a qual não sabe lidar.")   
-	    }
+	            message = "The server has encountered a situation it doesn't know how to handle.")  
+	    }	
 	)
 	public @interface OpenApiResponseCreated {
 

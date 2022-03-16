@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.lstecnologia.controller.BaseController;
 import br.com.lstecnologia.dto.request.UserEmailRequestDTO;
+import br.com.lstecnologia.openapi.response.OpenApiResponseNoContent;
 import br.com.lstecnologia.service.user.UserUuidPasswordService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -24,6 +25,7 @@ public class UserUuidPasswordController extends BaseController {
 	@Autowired
 	private UserUuidPasswordService userUuidPasswordService;
 	
+	@OpenApiResponseNoContent
 	@PutMapping(value = "/generate-uuid")
 	@ApiOperation(value = "Generate uuid for password update", response = Void.class)
 	public ResponseEntity<Void> generateCode(@Valid @RequestBody UserEmailRequestDTO userEmailRequestDTO) {

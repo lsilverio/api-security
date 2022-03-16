@@ -29,7 +29,8 @@ public class UserAssembler extends RepresentationModelAssemblerSupport<UserModel
 		UserResponseDTO usuarioResponseDto = modelMapper.map(usuarioModel, UserResponseDTO.class);
 
 		usuarioResponseDto
-				.add(linkTo(methodOn(UserConsultAllController.class).getAll()).withRel("usuarios"));
+				.add(linkTo(methodOn(UserConsultAllController.class)
+						.getAll(0, usuarioModel.getUsername(), usuarioModel.getName())).withRel("usuarios"));
 
 		usuarioResponseDto
 				.add(linkTo(methodOn(UserConsultIdController.class).getById(usuarioResponseDto.getId()))

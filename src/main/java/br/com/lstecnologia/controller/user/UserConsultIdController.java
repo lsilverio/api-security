@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.lstecnologia.controller.BaseController;
 import br.com.lstecnologia.dto.response.UserResponseDTO;
+import br.com.lstecnologia.openapi.response.OpenApiResponseOk;
 import br.com.lstecnologia.security.permission.UserSecurity;
 import br.com.lstecnologia.service.user.UserConsultIdService;
 import io.swagger.annotations.Api;
@@ -23,6 +24,7 @@ public class UserConsultIdController extends BaseController {
 	@Autowired
 	private UserConsultIdService userConsultIdService;
 	
+	@OpenApiResponseOk
 	@UserSecurity.Permission.ConsultById
 	@GetMapping(value = "/{id}")
 	@ApiOperation(value = "Get user by id", response = UserResponseDTO.class)

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.lstecnologia.controller.BaseController;
 import br.com.lstecnologia.dto.request.UserRegisterRequestDTO;
 import br.com.lstecnologia.dto.response.UserResponseDTO;
+import br.com.lstecnologia.openapi.response.OpenApiResponseCreated;
 import br.com.lstecnologia.service.user.UserRegisterService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -25,6 +26,7 @@ public class UserRegisterController extends BaseController {
 	@Autowired
 	private UserRegisterService userRegisterService;
 	
+	@OpenApiResponseCreated
 	@ApiOperation(value = "Register new user", response = UserResponseDTO.class)
 	@PostMapping
 	public ResponseEntity<Object> register(@Valid @RequestBody UserRegisterRequestDTO userRegisterRequestDTO) {

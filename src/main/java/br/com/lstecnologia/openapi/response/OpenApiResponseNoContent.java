@@ -26,13 +26,13 @@ import io.swagger.annotations.ApiResponses;
 	            message = "The client must authenticate itself to get the requested response."),
 	    @ApiResponse(
 	            code = 403, 
-	            message = "You do not have permission to perform this operation"),
+	            message = "You do not have permission to perform this operation."),
 	    @ApiResponse(
 	            code = 404, 
-	            message = "Resource Not Found. O servidor não pode encontrar o recurso solicitado."),
+	            message = "The server cannot find the requested resource."),
 	    @ApiResponse(
 	            code = 500, 
-	            message = "Internal Server Error. O servidor encontrou uma situação com a qual não sabe lidar.")  
+	            message = "The server has encountered a situation it doesn't know how to handle.")  
 	    }
 	)
 	public @interface OpenApiResponseNoContent {

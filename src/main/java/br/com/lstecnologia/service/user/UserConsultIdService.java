@@ -30,7 +30,9 @@ public class UserConsultIdService {
 			throw new RegraDeNegocioException("The user id entered does not belong to the logged in user");
 		}
 		
-		UserModel userModel = userRepository.findById(id).orElseThrow(() -> new ObjectNotFoundException("User not found using the given id"));
+		UserModel userModel = userRepository.findByIdAndExcludedFalse(id)
+				.orElseThrow(() -> new ObjectNotFoundException("User not found using the given id"));
+		
 		return usuarioAssembler.toResponseDTO(userModel);
 	}
 

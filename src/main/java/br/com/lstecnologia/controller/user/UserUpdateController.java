@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.lstecnologia.controller.BaseController;
 import br.com.lstecnologia.dto.request.UserRequestDTO;
+import br.com.lstecnologia.openapi.response.OpenApiResponseNoContent;
 import br.com.lstecnologia.security.permission.UserSecurity;
 import br.com.lstecnologia.service.user.UserUpdateService;
 import io.swagger.annotations.Api;
@@ -26,6 +27,7 @@ public class UserUpdateController extends BaseController {
 	@Autowired
 	private UserUpdateService userUpdateService;
 	
+	@OpenApiResponseNoContent
 	@UserSecurity.Permission.Update
 	@PutMapping(value = "/{id}")
 	@ApiOperation(value = "Update user", response = Void.class)
