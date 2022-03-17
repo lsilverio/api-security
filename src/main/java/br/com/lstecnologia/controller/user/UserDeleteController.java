@@ -10,10 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.lstecnologia.controller.BaseController;
 import br.com.lstecnologia.openapi.response.OpenApiResponseNoContent;
-import br.com.lstecnologia.security.permission.UserSecurity;
+import br.com.lstecnologia.security.permission.user.UserSecurity;
 import br.com.lstecnologia.service.user.UserDeleteService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 
 @Api(tags = "User", description = " ")
 @RestController
@@ -27,7 +28,8 @@ public class UserDeleteController extends BaseController {
 	@UserSecurity.Permission.Delete
 	@DeleteMapping
 	@ApiOperation(value = "Delete user by id", response = Void.class)
-	public ResponseEntity<Void> deleteById(@PathVariable Long id) {
+	public ResponseEntity<Void> deleteById(
+			@ApiParam(name = "id", value = "User id", required = true) @PathVariable Long id) {
 		deleteUserService.deleteById(id);
 		return noContent();
 	}

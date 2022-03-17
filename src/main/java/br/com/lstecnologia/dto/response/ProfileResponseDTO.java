@@ -9,12 +9,11 @@ import lombok.ToString;
 @Setter
 @ToString
 public class ProfileResponseDTO extends BaseResponseDTO {
-
 	
-	@ApiModelProperty(value = "Nome do usuario")
-	private String nome;
+	@ApiModelProperty(value = "Name")
+	private String name;
 	
-	@ApiModelProperty(value = "username do usuario")
-	private String username;
+	@ApiModelProperty(value = "Description")
+	private String description;
 	
 }

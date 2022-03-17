@@ -1,4 +1,4 @@
-package br.com.lstecnologia.dto.request;
+package br.com.lstecnologia.dto.request.user;
 
 import javax.validation.constraints.NotEmpty;
 
@@ -10,7 +10,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class UserRequestDTO extends BaseRequestDTO {
+public class UserRegisterRequestDTO {
 	
 	@NotEmpty(message = "Is required")
 	@ApiModelProperty(value = "Name", required = true)
@@ -23,5 +23,13 @@ public class UserRequestDTO extends BaseRequestDTO {
 	@NotEmpty(message = "Is required")
 	@ApiModelProperty(value = "Email confirmation", required = true, example = "email@email.com")
 	private String emailConfirmation;
+	
+	@NotEmpty(message = "Is required")
+	@ApiModelProperty(value = "Password", required = true)
+	private String password;
+	
+	@NotEmpty(message = "Is required")
+	@ApiModelProperty(value = "Password confirmation", required = true)
+	private String passwordConfirmation;
 
 }

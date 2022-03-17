@@ -10,7 +10,7 @@ import br.com.lstecnologia.mapper.assembler.UserAssembler;
 import br.com.lstecnologia.model.UserModel;
 import br.com.lstecnologia.repository.UserRepository;
 import br.com.lstecnologia.security.CheckSecurity;
-import br.com.lstecnologia.security.permission.UserPermissonSecurity;
+import br.com.lstecnologia.security.permission.user.UserPermissonSecurity;
 
 @Service
 public class UserConsultIdService {
@@ -19,7 +19,7 @@ public class UserConsultIdService {
 	private CheckSecurity checkSecurity;
 	
 	@Autowired
-	private UserAssembler usuarioAssembler;
+	private UserAssembler userAssembler;
 	
 	@Autowired
 	private UserRepository userRepository;
@@ -33,7 +33,7 @@ public class UserConsultIdService {
 		UserModel userModel = userRepository.findByIdAndExcludedFalse(id)
 				.orElseThrow(() -> new ObjectNotFoundException("User not found using the given id"));
 		
-		return usuarioAssembler.toResponseDTO(userModel);
+		return userAssembler.toResponseDTO(userModel);
 	}
 
 }

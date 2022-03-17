@@ -1,7 +1,8 @@
-package br.com.lstecnologia.dto.request;
+package br.com.lstecnologia.dto.request.user;
 
 import javax.validation.constraints.NotEmpty;
 
+import br.com.lstecnologia.dto.request.BaseRequestDTO;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;

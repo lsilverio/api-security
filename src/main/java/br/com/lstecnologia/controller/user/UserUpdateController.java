@@ -12,12 +12,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.lstecnologia.controller.BaseController;
-import br.com.lstecnologia.dto.request.UserRequestDTO;
+import br.com.lstecnologia.dto.request.user.UserUpdateRequestDTO;
 import br.com.lstecnologia.openapi.response.OpenApiResponseNoContent;
-import br.com.lstecnologia.security.permission.UserSecurity;
+import br.com.lstecnologia.security.permission.user.UserSecurity;
 import br.com.lstecnologia.service.user.UserUpdateService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 
 @Api(tags = "User", description = " ")
 @RestController
@@ -31,8 +32,13 @@ public class UserUpdateController extends BaseController {
 	@UserSecurity.Permission.Update
 	@PutMapping(value = "/{id}")
 	@ApiOperation(value = "Update user", response = Void.class)
-	public ResponseEntity<Void> update(@PathVariable Long id, @Valid @RequestBody UserRequestDTO userRequestDto) {
-		userUpdateService.update(id, userRequestDto);
+	public ResponseEntity<Void> update(
+			@ApiParam(name = "id", value = "User id", required = true) @PathVariable Long id, 
+			@ApiParam(name = "UserUpdateRequestDTO", 
+			value = "Attributes are mandatory to perform user update", 
+			required = true)
+			@Valid @RequestBody UserUpdateRequestDTO userUpdateRequestDTO) {
+		userUpdateService.update(id, userUpdateRequestDTO);
 		return noContent();
 	}
 	

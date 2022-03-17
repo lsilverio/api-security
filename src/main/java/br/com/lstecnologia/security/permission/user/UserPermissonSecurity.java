@@ -1,4 +1,4 @@
-package br.com.lstecnologia.security.permission;
+package br.com.lstecnologia.security.permission.user;
 
 import java.util.stream.Stream;
 
@@ -25,9 +25,9 @@ public enum UserPermissonSecurity {
 	}
 
 	@JsonCreator
-	public static UserPermissonSecurity decode(final String descricao) {
+	public static UserPermissonSecurity decode(final String description) {
 		return Stream.of(UserPermissonSecurity.values())
-				.filter(targetEnum -> targetEnum.description.equals(descricao))
+				.filter(targetEnum -> targetEnum.description.equals(description))
 				.findFirst()
 				.orElse(null);
 	}

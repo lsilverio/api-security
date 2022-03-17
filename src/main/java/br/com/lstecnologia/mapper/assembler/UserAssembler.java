@@ -24,23 +24,23 @@ public class UserAssembler extends RepresentationModelAssemblerSupport<UserModel
 	}
 
 	@Override
-	public UserResponseDTO toModel(UserModel usuarioModel) {
+	public UserResponseDTO toModel(UserModel userModel) {
 
-		UserResponseDTO usuarioResponseDto = modelMapper.map(usuarioModel, UserResponseDTO.class);
+		UserResponseDTO userResponseDTO = modelMapper.map(userModel, UserResponseDTO.class);
 
-		usuarioResponseDto
+		userResponseDTO
 				.add(linkTo(methodOn(UserConsultAllController.class)
-						.getAll(0, usuarioModel.getUsername(), usuarioModel.getName())).withRel("usuarios"));
+						.getAll(0, userModel.getUsername(), userModel.getName())).withRel("users"));
 
-		usuarioResponseDto
-				.add(linkTo(methodOn(UserConsultIdController.class).getById(usuarioResponseDto.getId()))
+		userResponseDTO
+				.add(linkTo(methodOn(UserConsultIdController.class).getById(userResponseDTO.getId()))
 						.withSelfRel());
 
-		return usuarioResponseDto;
+		return userResponseDTO;
 	}
 
-	public UserResponseDTO toResponseDTO(UserModel usuarioModel) {
-		return toModel(usuarioModel);
+	public UserResponseDTO toResponseDTO(UserModel userModel) {
+		return toModel(userModel);
 	}
 
 }

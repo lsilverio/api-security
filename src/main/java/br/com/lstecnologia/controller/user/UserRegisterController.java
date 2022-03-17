@@ -11,12 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.lstecnologia.controller.BaseController;
-import br.com.lstecnologia.dto.request.UserRegisterRequestDTO;
+import br.com.lstecnologia.dto.request.user.UserRegisterRequestDTO;
 import br.com.lstecnologia.dto.response.UserResponseDTO;
 import br.com.lstecnologia.openapi.response.OpenApiResponseCreated;
 import br.com.lstecnologia.service.user.UserRegisterService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 
 @Api(tags = "User", description = " ")
 @RestController
@@ -29,7 +30,11 @@ public class UserRegisterController extends BaseController {
 	@OpenApiResponseCreated
 	@ApiOperation(value = "Register new user", response = UserResponseDTO.class)
 	@PostMapping
-	public ResponseEntity<Object> register(@Valid @RequestBody UserRegisterRequestDTO userRegisterRequestDTO) {
+	public ResponseEntity<Object> register(
+			@ApiParam(name = "UserRegisterRequestDTO", 
+			value = "Attributes are mandatory to perform user registration", 
+			required = true) 
+			@Valid @RequestBody UserRegisterRequestDTO userRegisterRequestDTO) {
 		UserResponseDTO userResponseDto = userRegisterService.register(userRegisterRequestDTO);
 		return created(userResponseDto, userResponseDto.getId());
 	}

@@ -16,14 +16,14 @@ public class CheckSecurity {
 		return getAuthentication().isAuthenticated();
 	}
 	
-	public Long getUsuarioId() {
+	public Long getUserId() {
 		Jwt jwt = (Jwt) getAuthentication().getPrincipal();
 		return jwt.getClaim("usuario_id");
 	}
 	
 	public boolean isEqualsUserId(Long userId) {
-		return getUsuarioId() != null && userId != null
-				&& getUsuarioId().equals(userId);
+		return getUserId() != null && userId != null
+				&& getUserId().equals(userId);
 	}
 	
 	public boolean hasAuthority(String authorityName) {

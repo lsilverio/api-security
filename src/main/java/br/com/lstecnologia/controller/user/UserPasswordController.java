@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.lstecnologia.controller.BaseController;
-import br.com.lstecnologia.dto.request.UserNewPasswordRequestDTO;
+import br.com.lstecnologia.dto.request.user.UserNewPasswordRequestDTO;
 import br.com.lstecnologia.openapi.response.OpenApiResponseNoContent;
 import br.com.lstecnologia.service.user.UserPasswordService;
 import io.swagger.annotations.Api;

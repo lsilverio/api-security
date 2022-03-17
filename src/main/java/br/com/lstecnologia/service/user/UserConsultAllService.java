@@ -22,7 +22,7 @@ public class UserConsultAllService {
 	private static final int PAGE_SIZE = 10;
 
 	@Autowired
-	private UserAssembler usuarioAssembler;
+	private UserAssembler userAssembler;
 	
 	@Autowired
 	private UserRepository userRepository;
@@ -49,7 +49,7 @@ public class UserConsultAllService {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private PageableResponseDTO<UserResponseDTO> pageUser(Page<UserModel> list) {
 		return new PageableResponseDTO(list, list.stream()
-				.map(user -> usuarioAssembler.toResponseDTO(user))
+				.map(user -> userAssembler.toResponseDTO(user))
 				.collect(Collectors.toList()));
 	}
 

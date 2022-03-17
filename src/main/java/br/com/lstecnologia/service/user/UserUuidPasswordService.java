@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.lstecnologia.dto.request.UserEmailRequestDTO;
+import br.com.lstecnologia.dto.request.user.UserEmailRequestDTO;
 import br.com.lstecnologia.exception.ObjectNotFoundException;
 import br.com.lstecnologia.model.UserModel;
 import br.com.lstecnologia.repository.UserRepository;

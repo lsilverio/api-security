@@ -1,4 +1,4 @@
-package br.com.lstecnologia.dto.request;
+package br.com.lstecnologia.dto.request.user;
 
 import javax.validation.constraints.NotEmpty;
 

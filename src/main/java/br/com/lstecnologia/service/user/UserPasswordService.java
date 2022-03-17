@@ -3,7 +3,7 @@ package br.com.lstecnologia.service.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.lstecnologia.dto.request.UserNewPasswordRequestDTO;
+import br.com.lstecnologia.dto.request.user.UserNewPasswordRequestDTO;
 import br.com.lstecnologia.exception.ObjectNotFoundException;
 import br.com.lstecnologia.model.UserModel;
 import br.com.lstecnologia.repository.UserRepository;
