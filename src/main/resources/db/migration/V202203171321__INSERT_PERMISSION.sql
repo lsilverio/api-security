@@ -71,6 +71,28 @@ VALUES
    NOW(),
    0,
    NULL,
+   1,   
+   'Add profile for the user',
+   'USER_ADD_PROFILE'
+),
+
+(
+   1,
+   NOW(),
+   NOW(),
+   0,
+   NULL,
+   1,   
+   'Remove profile for the user',
+   'USER_REMOVE_PROFILE'
+),
+
+(
+   1,
+   NOW(),
+   NOW(),
+   0,
+   NULL,
    1,
    'Consult all profiles',
    'PROFILE_CONSULT_ALL'
@@ -127,6 +149,28 @@ VALUES
    0,
    NULL,
    1,   
+   'Add permission for the profile',
+   'PROFILE_ADD_PERMISSION'
+),
+
+(
+   1,
+   NOW(),
+   NOW(),
+   0,
+   NULL,
+   1,   
+   'Remove permission for the profile',
+   'PROFILE_REMOVE_PERMISSION'
+),
+
+(
+   1,
+   NOW(),
+   NOW(),
+   0,
+   NULL,
+   1,   
    'Consult all permissions',
    'PERMISSION_CONSULT_ALL'
 ),
@@ -140,27 +184,5 @@ VALUES
    1,   
    'Consult permission by id',
    'PERMISSION_CONSULT_BY_ID'
-),
-
-(
-   1,
-   NOW(),
-   NOW(),
-   0,
-   NULL,
-   1,   
-   'Update permission',
-   'PERMISSION_UPDATE'
-),
-
-(
-   1,
-   NOW(),
-   NOW(),
-   0,
-   NULL,
-   1,   
-   'Delete permission',
-   'PERMISSION_DELETE'
 )
 ;

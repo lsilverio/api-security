@@ -10,28 +10,28 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.lstecnologia.controller.BaseController;
 import br.com.lstecnologia.openapi.response.OpenApiResponseCreated;
-import br.com.lstecnologia.security.permission.user.UserAuthority;
-import br.com.lstecnologia.service.user.UserProfileRemoveService;
+import br.com.lstecnologia.security.permission.profile.ProfileAuthority;
+import br.com.lstecnologia.service.profile.ProfilePermissionRemoveService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
-@Api(tags = "User - Profile", description = " ")
+@Api(tags = "Profile - Permission", description = " ")
 @RestController
-@RequestMapping(value = "/users/{userId}/profiles/{profileId}", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/profiles/{profileId}/permissions/{permissionId}", produces = MediaType.APPLICATION_JSON_VALUE)
 public class ProfilePermissionRemoveController extends BaseController {
 	
 	@Autowired
-	private UserProfileRemoveService userProfileRemoveService;
+	private ProfilePermissionRemoveService profilePermissionRemoveService;
 	
-	@UserAuthority.Permission.RemoveProfile
+	@ProfileAuthority.Permission.RemovePermission
 	@OpenApiResponseCreated
-	@ApiOperation(value = "Remove profile for the user", response = Void.class)
+	@ApiOperation(value = "Remove permission for the profile", response = Void.class)
 	@DeleteMapping
-	public ResponseEntity<Void> removeProfile(
-			@ApiParam(name = "userId", value = "User id", required = true) @PathVariable Long userId,
-			@ApiParam(name = "profileId", value = "Profile id", required = true) @PathVariable Long profileId) {
-		userProfileRemoveService.removeProfile(userId, profileId);
+	public ResponseEntity<Void> removePermission(
+			@ApiParam(name = "profileId", value = "Profile id", required = true) @PathVariable Long profileId,
+			@ApiParam(name = "permissionId", value = "Permission id", required = true) @PathVariable Long permissionId) {
+		profilePermissionRemoveService.removePermission(profileId, permissionId);
 		return noContent();
 	}
 

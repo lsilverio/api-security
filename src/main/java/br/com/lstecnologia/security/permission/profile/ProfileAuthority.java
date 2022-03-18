@@ -37,6 +37,16 @@ public @interface ProfileAuthority {
 		@Target(METHOD)
 		public @interface Delete { }
 		
+		@PreAuthorize("hasAuthority('PROFILE_ADD_PERMISSION')")
+		@Retention(RUNTIME)
+		@Target(METHOD)
+		public @interface AddPermission { }
+		
+		@PreAuthorize("hasAuthority('PROFILE_REMOVE_PERMISSION')")
+		@Retention(RUNTIME)
+		@Target(METHOD)
+		public @interface RemovePermission { }
+		
 	}
 	
 }

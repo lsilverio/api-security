@@ -22,16 +22,6 @@ public @interface PermissionAuthority {
 		@Target(METHOD)
 		public @interface ConsultById { }
 		
-		@PreAuthorize("hasAuthority('PERMISSION_UPDATE')")
-		@Retention(RUNTIME)
-		@Target(METHOD)
-		public @interface Update { }
-
-		@PreAuthorize("hasAuthority('PERMISSION_DELETE')")
-		@Retention(RUNTIME)
-		@Target(METHOD)
-		public @interface Delete { }
-		
 	}
 	
 }
