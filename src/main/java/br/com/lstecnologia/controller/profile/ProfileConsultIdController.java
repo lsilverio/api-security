@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.lstecnologia.controller.BaseController;
 import br.com.lstecnologia.dto.response.ProfileResponseDTO;
 import br.com.lstecnologia.openapi.response.OpenApiResponseOk;
-import br.com.lstecnologia.security.permission.profile.ProfileSecurity;
+import br.com.lstecnologia.security.permission.profile.ProfileAuthority;
 import br.com.lstecnologia.service.profile.ProfileConsultIdService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -26,7 +26,7 @@ public class ProfileConsultIdController extends BaseController {
 	private ProfileConsultIdService profileConsultIdService;
 	
 	@OpenApiResponseOk
-	@ProfileSecurity.Permission.ConsultById
+	@ProfileAuthority.Permission.ConsultById
 	@GetMapping(value = "/{id}")
 	@ApiOperation(value = "Get profile by id", response = ProfileResponseDTO.class)
 	public ResponseEntity<Object> getById(

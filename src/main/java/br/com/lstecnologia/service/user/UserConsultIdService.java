@@ -10,12 +10,12 @@ import br.com.lstecnologia.mapper.assembler.UserAssembler;
 import br.com.lstecnologia.model.UserModel;
 import br.com.lstecnologia.repository.UserRepository;
 import br.com.lstecnologia.security.CheckSecurity;
-import br.com.lstecnologia.security.permission.user.UserPermissonSecurity;
+import br.com.lstecnologia.security.permission.user.UserEnumAuthority;
 
 @Service
 public class UserConsultIdService {
 	
-	private static final String PODE_CONSULTAR_QUALQUER_USUARIO = UserPermissonSecurity.USER_CONSULT_ALL_BY_ID.getDescription();
+	private static final String PODE_CONSULTAR_QUALQUER_USUARIO = UserEnumAuthority.USER_CONSULT_ALL_BY_ID.getDescription();
 
 	@Autowired
 	private CheckSecurity checkSecurity;

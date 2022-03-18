@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.lstecnologia.controller.BaseController;
 import br.com.lstecnologia.dto.request.profile.ProfileUpdateRequestDTO;
 import br.com.lstecnologia.openapi.response.OpenApiResponseNoContent;
-import br.com.lstecnologia.security.permission.profile.ProfileSecurity;
+import br.com.lstecnologia.security.permission.profile.ProfileAuthority;
 import br.com.lstecnologia.service.profile.ProfileUpdateService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -29,7 +29,7 @@ public class ProfileUpdateController extends BaseController {
 	private ProfileUpdateService profileUpdateService;
 	
 	@OpenApiResponseNoContent
-	@ProfileSecurity.Permission.Update
+	@ProfileAuthority.Permission.Update
 	@PutMapping(value = "/{id}")
 	@ApiOperation(value = "Update profile", response = Void.class)
 	public ResponseEntity<Void> update(

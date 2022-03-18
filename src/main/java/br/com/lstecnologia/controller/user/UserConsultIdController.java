@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.lstecnologia.controller.BaseController;
 import br.com.lstecnologia.dto.response.UserResponseDTO;
 import br.com.lstecnologia.openapi.response.OpenApiResponseOk;
-import br.com.lstecnologia.security.permission.user.UserSecurity;
+import br.com.lstecnologia.security.permission.user.UserAuthority;
 import br.com.lstecnologia.service.user.UserConsultIdService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -26,7 +26,7 @@ public class UserConsultIdController extends BaseController {
 	private UserConsultIdService userConsultIdService;
 	
 	@OpenApiResponseOk
-	@UserSecurity.Permission.ConsultById
+	@UserAuthority.Permission.ConsultById
 	@GetMapping(value = "/{id}")
 	@ApiOperation(value = "Get user by id", response = UserResponseDTO.class)
 	public ResponseEntity<Object> getById(

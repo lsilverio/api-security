@@ -94,6 +94,17 @@ VALUES
    0,
    NULL,
    1,   
+   'Register profile',
+   'PROFILE_REGISTER'
+),
+
+(
+   1,
+   NOW(),
+   NOW(),
+   0,
+   NULL,
+   1,   
    'Update profile',
    'PROFILE_UPDATE'
 ),
@@ -107,5 +118,49 @@ VALUES
    1,   
    'Delete profile',
    'PROFILE_DELETE'
+),
+
+(
+   1,
+   NOW(),
+   NOW(),
+   0,
+   NULL,
+   1,   
+   'Consult all permissions',
+   'PERMISSION_CONSULT_ALL'
+),
+
+(
+   1,
+   NOW(),
+   NOW(),
+   0,
+   NULL,
+   1,   
+   'Consult permission by id',
+   'PERMISSION_CONSULT_BY_ID'
+),
+
+(
+   1,
+   NOW(),
+   NOW(),
+   0,
+   NULL,
+   1,   
+   'Update permission',
+   'PERMISSION_UPDATE'
+),
+
+(
+   1,
+   NOW(),
+   NOW(),
+   0,
+   NULL,
+   1,   
+   'Delete permission',
+   'PERMISSION_DELETE'
 )
 ;

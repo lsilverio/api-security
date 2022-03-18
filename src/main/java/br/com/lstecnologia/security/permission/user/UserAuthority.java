@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 
-public @interface UserSecurity {
+public @interface UserAuthority {
 
 	public @interface Permission {
 		
@@ -36,6 +36,16 @@ public @interface UserSecurity {
 		@Retention(RUNTIME)
 		@Target(METHOD)
 		public @interface Delete { }
+		
+		@PreAuthorize("hasAuthority('USER_ADD_PROFILE')")
+		@Retention(RUNTIME)
+		@Target(METHOD)
+		public @interface AddProfile { }
+		
+		@PreAuthorize("hasAuthority('USER_REMOVE_PROFILE')")
+		@Retention(RUNTIME)
+		@Target(METHOD)
+		public @interface RemoveProfile { }
 		
 	}
 	

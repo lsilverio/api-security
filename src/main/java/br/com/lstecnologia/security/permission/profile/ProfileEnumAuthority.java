@@ -5,16 +5,17 @@ import java.util.stream.Stream;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum ProfilePermissonSecurity {
+public enum ProfileEnumAuthority {
 
 	PROFILE_CONSULT_ALL("PROFILE_CONSULT_ALL"),
 	PROFILE_CONSULT_BY_ID("PROFILE_CONSULT_BY_ID"),
+	PROFILE_REGISTER("PROFILE_REGISTER"),
 	PROFILE_UPDATE("PROFILE_UPDATE"),
 	PROFILE_DELETE("PROFILE_DELETE");
 
 	String description;
 
-	ProfilePermissonSecurity(String description) {
+	ProfileEnumAuthority(String description) {
 		this.description = description;
 	}
 
@@ -24,8 +25,8 @@ public enum ProfilePermissonSecurity {
 	}
 
 	@JsonCreator
-	public static ProfilePermissonSecurity decode(final String description) {
-		return Stream.of(ProfilePermissonSecurity.values())
+	public static ProfileEnumAuthority decode(final String description) {
+		return Stream.of(ProfileEnumAuthority.values())
 				.filter(targetEnum -> targetEnum.description.equals(description))
 				.findFirst()
 				.orElse(null);

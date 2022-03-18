@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.lstecnologia.controller.BaseController;
 import br.com.lstecnologia.dto.request.user.UserUpdateRequestDTO;
 import br.com.lstecnologia.openapi.response.OpenApiResponseNoContent;
-import br.com.lstecnologia.security.permission.user.UserSecurity;
+import br.com.lstecnologia.security.permission.user.UserAuthority;
 import br.com.lstecnologia.service.user.UserUpdateService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -29,7 +29,7 @@ public class UserUpdateController extends BaseController {
 	private UserUpdateService userUpdateService;
 	
 	@OpenApiResponseNoContent
-	@UserSecurity.Permission.Update
+	@UserAuthority.Permission.Update
 	@PutMapping(value = "/{id}")
 	@ApiOperation(value = "Update user", response = Void.class)
 	public ResponseEntity<Void> update(

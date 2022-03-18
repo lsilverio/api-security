@@ -14,6 +14,7 @@ import br.com.lstecnologia.controller.BaseController;
 import br.com.lstecnologia.dto.request.profile.ProfileRegisterRequestDTO;
 import br.com.lstecnologia.dto.response.ProfileResponseDTO;
 import br.com.lstecnologia.openapi.response.OpenApiResponseCreated;
+import br.com.lstecnologia.security.permission.profile.ProfileAuthority;
 import br.com.lstecnologia.service.profile.ProfileRegisterService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -27,6 +28,7 @@ public class ProfileRegisterController extends BaseController {
 	@Autowired
 	private ProfileRegisterService profileRegisterService;
 	
+	@ProfileAuthority.Permission.Register
 	@OpenApiResponseCreated
 	@ApiOperation(value = "Register new profile", response = ProfileResponseDTO.class)
 	@PostMapping

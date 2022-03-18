@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.lstecnologia.controller.BaseController;
 import br.com.lstecnologia.dto.response.PageableResponseDTO;
 import br.com.lstecnologia.openapi.response.OpenApiResponseOk;
-import br.com.lstecnologia.security.permission.user.UserSecurity;
+import br.com.lstecnologia.security.permission.user.UserAuthority;
 import br.com.lstecnologia.service.user.UserConsultAllService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -26,7 +26,7 @@ public class UserConsultAllController extends BaseController {
 	private UserConsultAllService userConsultAllService;
 	
 	@OpenApiResponseOk
-	@UserSecurity.Permission.ConsultAll
+	@UserAuthority.Permission.ConsultAll
 	@GetMapping
 	@ApiOperation(value = "Get all users", response = PageableResponseDTO.class)
 	public ResponseEntity<Object> getAll(
