@@ -1,4 +1,4 @@
-# API - Authenticator
+# API - Securiy
 
     Projeto construído baseado em um curso da AlgaWorks onde o intuito do mesmo é desenvolver uma API RestFull para realizar gerenciamento de usuário, perfil e permissoes.
 
