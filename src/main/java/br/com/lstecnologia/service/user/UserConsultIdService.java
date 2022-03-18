@@ -15,6 +15,8 @@ import br.com.lstecnologia.security.permission.user.UserPermissonSecurity;
 @Service
 public class UserConsultIdService {
 	
+	private static final String PODE_CONSULTAR_QUALQUER_USUARIO = UserPermissonSecurity.USER_CONSULT_ALL_BY_ID.getDescription();
+
 	@Autowired
 	private CheckSecurity checkSecurity;
 	
@@ -26,7 +28,7 @@ public class UserConsultIdService {
 	
 	public UserResponseDTO getById(Long id) {
 
-		if(!checkSecurity.isEqualsUserId(id) && !checkSecurity.hasAuthority(UserPermissonSecurity.CONSULT_ALL_BY_ID_USERS.getDescription())) {
+		if(!checkSecurity.isEqualsUserId(id) && !checkSecurity.hasAuthority(PODE_CONSULTAR_QUALQUER_USUARIO)) {
 			throw new RegraDeNegocioException("The user id entered does not belong to the logged in user");
 		}
 		

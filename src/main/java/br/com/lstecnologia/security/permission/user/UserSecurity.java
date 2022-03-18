@@ -12,27 +12,27 @@ public @interface UserSecurity {
 
 	public @interface Permission {
 		
-		@PreAuthorize("hasAuthority('CONSULT_ALL_USERS')")
+		@PreAuthorize("hasAuthority('USER_CONSULT_ALL')")
 		@Retention(RUNTIME)
 		@Target(METHOD)
 		public @interface ConsultAll { }
 		
-		@PreAuthorize("hasAuthority('CONSULT_BY_ID_USER')")
-		@Retention(RUNTIME)
-		@Target(METHOD)
-		public @interface ConsultById { }
-		
-		@PreAuthorize("hasAuthority('CONSULT_ALL_BY_ID_USERS')")
+		@PreAuthorize("hasAuthority('USER_CONSULT_ALL_BY_ID')")
 		@Retention(RUNTIME)
 		@Target(METHOD)
 		public @interface ConsultAllById { }
 		
-		@PreAuthorize("hasAuthority('UPDATE_USER')")
+		@PreAuthorize("hasAuthority('USER_CONSULT_BY_ID')")
+		@Retention(RUNTIME)
+		@Target(METHOD)
+		public @interface ConsultById { }
+		
+		@PreAuthorize("hasAuthority('USER_UPDATE')")
 		@Retention(RUNTIME)
 		@Target(METHOD)
 		public @interface Update { }
 
-		@PreAuthorize("hasAuthority('DELETE_USER')")
+		@PreAuthorize("hasAuthority('USER_DELETE')")
 		@Retention(RUNTIME)
 		@Target(METHOD)
 		public @interface Delete { }

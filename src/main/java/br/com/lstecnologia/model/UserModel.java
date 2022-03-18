@@ -46,10 +46,10 @@ public class UserModel extends BaseModel implements Serializable {
 	@Column(nullable = false)
 	private String password;
 	
-	@Column(name = "uuid_password", nullable = false)
+	@Column(name = "uuid_password")
 	private String uuidPassword;
 	
-	@Column(name = "expiration_date_uuid_password", nullable = false)
+	@Column(name = "expiration_date_uuid_password")
 	private LocalDateTime expirationDateUuidPassword;
 	
 	@ManyToMany

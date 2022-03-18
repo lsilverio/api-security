@@ -11,9 +11,7 @@ spring:
     username: root
   jpa:
     database-platform: org.hibernate.dialect.MySQL5Dialect
-    hibernate:
-      ddl-auto: update
-    show-sql: false
+    show-sql: true
   security:
     oauth2:
       resourceserver:
